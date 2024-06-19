@@ -5,6 +5,13 @@ class MySet:
         for value in enumerable:
             self.dictionary[value] = True
     
+    def __str__(self) -> str:
+        ls = []
+        for key in self.dictionary.keys():
+            ls.append(str(key))
+        return f'MySet: {{{",".join(ls)}}}'
+
+
     def has(self, value):
         return value in self.dictionary
     
@@ -23,10 +30,13 @@ class MySet:
         self.dictionary.clear()
         return self
     
-    def __str__(self) -> str:
-        return 'MySet: {}'.format(self.dictionary.keys())
+    
 
 
+st = MySet([1,2,3,3,3,4])
 
-st = MySet([1,2,3,4])
-print(st)
+st.add(5)
+print(st.add(6))
+print(st.delete(7))
+print(st.size())
+print(st.clear())
